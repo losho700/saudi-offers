@@ -19,6 +19,16 @@
       "url": "https://example.com",
       "category": "electronics",
       "featured": false
+    },
+    {
+      "featured": true,
+      "id": "coupon3",
+      "storeName": "نايس ون",
+      "code": "FAZAA",
+      "url": "https://niceonesa.com/ar",
+      "category": "online",
+      "storeLogo": "/assets/images/uploads/نايس-ون.png",
+      "description": "خصم"
     }
   ]
 }
