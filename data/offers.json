@@ -1,43 +1,54 @@
 {
   "items": [
     {
-      "id": "offer1",
-      "title": "خصم 30% على جميع الأطباق",
-      "description": "استمتع بخصم 30% على كل قائمة الطعام طوال شهر اليوم الوطني.",
-      "image": "https://picsum.photos/seed/offer1/600/450",
-      "storeName": "مطعم البيت السعودي",
-      "category": "restaurants",
-      "discountPercent": 30,
-      "discountCode": "KSA96",
       "expiryDate": "2026-10-15",
+      "discountPercent": 30,
+      "storeName": "مطعم البيت السعودي",
       "featured": true,
-      "url": "https://example.com"
+      "discountCode": "KSA96",
+      "url": "https://example.com",
+      "title": "خصم 30% على جميع الأطباق",
+      "id": "offer1",
+      "image": "https://picsum.photos/seed/offer1/600/450",
+      "description": "استمتع بخصم 30% على كل قائمة الطعام طوال شهر اليوم الوطني.",
+      "category": "restaurants"
     },
     {
-      "id": "offer2",
-      "title": "تخفيضات نهاية الموسم حتى 50%",
-      "description": "تشكيلة واسعة من الأزياء بخصومات تصل إلى 50%.",
-      "image": "https://picsum.photos/seed/offer2/600/450",
-      "storeName": "بوتيك لمسة",
-      "category": "fashion",
-      "discountPercent": 50,
-      "discountCode": "",
       "expiryDate": "2026-10-01",
+      "discountPercent": 50,
+      "storeName": "بوتيك لمسة",
       "featured": false,
-      "url": "https://example.com"
+      "discountCode": "",
+      "url": "https://example.com",
+      "title": "تخفيضات نهاية الموسم حتى 50%",
+      "id": "offer2",
+      "image": "https://picsum.photos/seed/offer2/600/450",
+      "description": "تشكيلة واسعة من الأزياء بخصومات تصل إلى 50%.",
+      "category": "fashion"
     },
     {
-      "id": "offer3",
-      "title": "اشترِ عطرًا واحصل على الثاني بنصف السعر",
-      "description": "عرض حصري على كل عطورنا الفاخرة.",
-      "image": "https://picsum.photos/seed/offer3/600/450",
-      "storeName": "دار العطور الفاخرة",
-      "category": "perfumes",
-      "discountPercent": 25,
-      "discountCode": "PERFUME25",
       "expiryDate": "",
+      "discountPercent": 25,
+      "storeName": "دار العطور الفاخرة",
       "featured": true,
-      "url": "https://example.com"
+      "discountCode": "PERFUME25",
+      "url": "https://example.com",
+      "title": "اشترِ عطرًا واحصل على الثاني بنصف السعر",
+      "id": "offer3",
+      "image": "https://picsum.photos/seed/offer3/600/450",
+      "description": "عرض حصري على كل عطورنا الفاخرة.",
+      "category": "perfumes"
+    },
+    {
+      "expiryDate": "",
+      "storeName": "امازون",
+      "featured": true,
+      "url": "https://link.amazon/B0hvG4ShS",
+      "title": "عروض امازون اليوم الوطني 96",
+      "id": "offer4",
+      "image": "/assets/images/uploads/امازون.png",
+      "description": "قريباً أقوى عروض اليوم الوطني في امازون مع بنك الراجحي",
+      "category": "online"
     }
   ]
 }
