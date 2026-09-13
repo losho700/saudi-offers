@@ -1,0 +1,15 @@
+{
+  "items": [
+    { "id": "restaurants", "name": "مطاعم", "icon": "🍽️" },
+    { "id": "fashion", "name": "أزياء", "icon": "👗" },
+    { "id": "perfumes", "name": "عطور", "icon": "🌸" },
+    { "id": "sweets", "name": "حلويات", "icon": "🍰" },
+    { "id": "electronics", "name": "إلكترونيات", "icon": "💻" },
+    { "id": "travel", "name": "سفر وفنادق", "icon": "✈️" },
+    { "id": "beauty", "name": "تجميل", "icon": "💇‍♀️" },
+    { "id": "furniture", "name": "أثاث", "icon": "🛋️" },
+    { "id": "cars", "name": "سيارات", "icon": "🚗" },
+    { "id": "services", "name": "خدمات", "icon": "🔧" },
+    { "id": "online", "name": "متاجر إلكترونية", "icon": "🛍️" }
+  ]
+}

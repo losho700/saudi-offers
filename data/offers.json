@@ -1,0 +1,43 @@
+{
+  "items": [
+    {
+      "id": "offer1",
+      "title": "خصم 30% على جميع الأطباق",
+      "description": "استمتع بخصم 30% على كل قائمة الطعام طوال شهر اليوم الوطني.",
+      "image": "https://picsum.photos/seed/offer1/600/450",
+      "storeName": "مطعم البيت السعودي",
+      "category": "restaurants",
+      "discountPercent": 30,
+      "discountCode": "KSA96",
+      "expiryDate": "2026-10-15",
+      "featured": true,
+      "url": "https://example.com"
+    },
+    {
+      "id": "offer2",
+      "title": "تخفيضات نهاية الموسم حتى 50%",
+      "description": "تشكيلة واسعة من الأزياء بخصومات تصل إلى 50%.",
+      "image": "https://picsum.photos/seed/offer2/600/450",
+      "storeName": "بوتيك لمسة",
+      "category": "fashion",
+      "discountPercent": 50,
+      "discountCode": "",
+      "expiryDate": "2026-10-01",
+      "featured": false,
+      "url": "https://example.com"
+    },
+    {
+      "id": "offer3",
+      "title": "اشترِ عطرًا واحصل على الثاني بنصف السعر",
+      "description": "عرض حصري على كل عطورنا الفاخرة.",
+      "image": "https://picsum.photos/seed/offer3/600/450",
+      "storeName": "دار العطور الفاخرة",
+      "category": "perfumes",
+      "discountPercent": 25,
+      "discountCode": "PERFUME25",
+      "expiryDate": "",
+      "featured": true,
+      "url": "https://example.com"
+    }
+  ]
+}
