@@ -1,6 +1,16 @@
 {
   "items": [
     {
+      "featured": true,
+      "id": "coupon3",
+      "storeName": "نايس ون",
+      "code": "FAZAA",
+      "url": "https://niceonesa.com/ar",
+      "category": "online",
+      "storeLogo": "/assets/images/uploads/نايس-ون.png",
+      "description": "خصم"
+    },
+    {
       "id": "coupon1",
       "storeName": "رحلات الخليج للسفر",
       "storeLogo": "https://picsum.photos/seed/store5/200",
@@ -19,16 +29,6 @@
       "url": "https://example.com",
       "category": "electronics",
       "featured": false
-    },
-    {
-      "featured": true,
-      "id": "coupon3",
-      "storeName": "نايس ون",
-      "code": "FAZAA",
-      "url": "https://niceonesa.com/ar",
-      "category": "online",
-      "storeLogo": "/assets/images/uploads/نايس-ون.png",
-      "description": "خصم"
     }
   ]
 }
