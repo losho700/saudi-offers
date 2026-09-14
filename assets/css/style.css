@@ -49,8 +49,14 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .btn-primary:hover { background: var(--saudi-600); }
 .btn-white { background: #fff; color: var(--saudi-700); }
 .btn-white:hover { background: var(--saudi-50); }
+.btn-admin { background: var(--saudi-800); color: #fff; border: 1px solid var(--saudi-600); }
+.btn-admin:hover { background: var(--saudi-950); }
+.mobile-admin-link { border-top: 1px solid var(--saudi-100); margin-top: 6px; padding-top: 12px !important; color: var(--saudi-700) !important; }
 .btn-outline { background: transparent; border: 2px solid rgba(255,255,255,.7); color: #fff; }
 .btn-outline:hover { background: rgba(255,255,255,.1); }
+
+/* ---------- Souqama Banner ---------- */
+/* (تمت إزالته - الشعار الآن جزء من صورة الـHero الرئيسية) */
 
 /* ---------- Header ---------- */
 .site-header {
@@ -59,48 +65,105 @@ button { font-family: inherit; cursor: pointer; border: none; }
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--saudi-100);
 }
-.header-inner { display: flex; align-items: center; justify-content: space-between; height: 66px; gap: 16px; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 66px; padding: 10px 0; gap: 12px; flex-wrap: wrap; }
 .logo { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .logo-badge { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--saudi-500); color: #fff; font-size: 16px; }
 .logo-text { font-weight: 800; color: var(--saudi-800); font-size: 16px; }
 .logo-text b { color: var(--gold-500); }
-.main-nav { display: flex; gap: 4px; }
+.main-nav { display: flex; gap: 4px; flex-wrap: wrap; }
 .main-nav a { padding: 8px 14px; border-radius: 8px; font-weight: 600; font-size: 14px; color: rgba(3,44,22,.8); }
 .main-nav a:hover { background: var(--saudi-50); color: var(--saudi-700); }
 .menu-toggle { display: none; background: none; font-size: 22px; color: var(--saudi-700); }
+.header-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.header-actions .btn { white-space: nowrap; padding: 9px 16px; }
 
-@media (max-width: 860px) {
-  .main-nav { position: absolute; top: 66px; right: 0; left: 0; background: #fff; flex-direction: column; padding: 10px; border-bottom: 1px solid var(--saudi-100); display: none; }
+@media (max-width: 1080px) {
+  .main-nav { position: absolute; top: 100%; right: 0; left: 0; background: #fff; flex-direction: column; padding: 10px; border-bottom: 1px solid var(--saudi-100); display: none; }
   .main-nav.open { display: flex; }
   .menu-toggle { display: block; }
   .header-actions { display: none; }
 }
 
 /* ---------- Hero ---------- */
-.hero {
-  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,.08), transparent 40%),
-              radial-gradient(circle at 80% 60%, rgba(217,180,92,.12), transparent 45%),
-              linear-gradient(180deg, var(--saudi-800), var(--saudi-700) 55%, var(--saudi-600));
-  padding: 70px 0 60px;
-  text-align: center;
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
 }
+.hero {
+  position: relative;
+  background: #1b4324;
+  padding-bottom: 40px;
+  text-align: center;
+  overflow: hidden;
+}
+.hero-bg {
+  width: 100%;
+  padding-top: 41%; /* نسبة ارتفاع الصورة (593/1444) */
+  background-image: url('../images/uploads/hero-national-day.png');
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 55%;
+  background: linear-gradient(to bottom, rgba(27,67,36,0) 0%, #1b4324 92%);
+  pointer-events: none;
+}
+.hero-inner { width: 100%; margin-top: -4%; position: relative; z-index: 1; }
+
 .hero-badge { display: inline-block; background: rgba(255,255,255,.12); color: #fff; padding: 7px 16px; border-radius: 999px; font-size: 13px; margin-bottom: 18px; }
 .hero h1 { color: #fff; font-size: clamp(28px, 5vw, 46px); font-weight: 800; margin: 0 0 12px; }
 .hero-sub { color: rgba(255,255,255,.9); font-size: clamp(15px, 2vw, 18px); max-width: 600px; margin: 0 auto 30px; }
 
-.countdown { display: flex; justify-content: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
-.cd-box { background: rgba(255,255,255,.1); border-radius: 12px; padding: 12px 16px; min-width: 64px; backdrop-filter: blur(4px); }
-.cd-box span { display: block; color: #fff; font-size: 24px; font-weight: 800; }
-.cd-box small { color: var(--saudi-100); font-size: 12px; }
-.countdown-note { color: var(--saudi-100); font-size: 13px; margin: 0 0 30px; }
+.countdown { display: flex; justify-content: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+.cd-box {
+  background: linear-gradient(180deg, #0a3d20, #062814);
+  border: 1.5px solid #d9b45c;
+  box-shadow: 0 0 14px rgba(217,180,92,.45), inset 0 0 8px rgba(217,180,92,.15);
+  border-radius: 12px;
+  padding: 10px 14px;
+  min-width: 60px;
+}
+.cd-box span { display: block; color: #ffffff; font-size: clamp(20px, 3vw, 30px); font-weight: 800; }
+.cd-box small { color: #fff; font-size: 11px; }
+.countdown-note { color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.4); font-size: 13px; margin: 0 0 24px; max-width: 90%; margin-inline: auto; }
 
 .search-wrap { position: relative; max-width: 480px; margin: 0 auto 24px; }
 .search-wrap input {
-  width: 100%; padding: 15px 44px 15px 16px; border: none; border-radius: 12px;
-  font-size: 15px; font-family: inherit; box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  width: 100%; padding: 15px 44px 15px 16px; border: none; border-radius: 999px;
+  font-size: 15px; font-family: inherit; box-shadow: 0 10px 30px rgba(0,0,0,.25);
 }
 .search-icon { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); opacity: .5; }
 .hero-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+.btn-gold {
+  background: linear-gradient(180deg, #f0cf7a, var(--gold-500));
+  color: #1c1500;
+  box-shadow: 0 4px 14px rgba(198,154,62,.5);
+}
+.btn-gold:hover { filter: brightness(1.05); }
+.btn-gold-outline {
+  background: rgba(4,21,12,.55);
+  border: 2px solid var(--gold-400);
+  color: #fff;
+  font-weight: 800;
+}
+.btn-gold-outline:hover { background: rgba(217,180,92,.25); }
+
+@media (max-width: 700px) {
+  .hero-bg { padding-top: 55%; background-size: 160% auto; }
+  .hero-inner { margin-top: -9%; }
+  .cd-box { min-width: 52px; padding: 8px 10px; }
+}
 
 /* ---------- Sections ---------- */
 .section { padding: 50px 0; }
@@ -121,8 +184,51 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .filter-pill.active { background: var(--saudi-500); border-color: var(--saudi-500); color: #fff; }
 
 .grid { display: grid; gap: 18px; }
-.categories-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+.categories-grid {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 12px;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--saudi-200) transparent;
+}
+.categories-grid::-webkit-scrollbar { height: 6px; }
+.categories-grid::-webkit-scrollbar-thumb { background: var(--saudi-200); border-radius: 999px; }
+.categories-grid .category-card {
+  scroll-snap-align: start;
+  flex: 0 0 100px;
+  padding: 14px 8px;
+}
+.categories-grid .category-card .icon { font-size: 22px; margin-bottom: 4px; }
+.categories-grid .category-card .name { font-size: 12px; }
+.categories-wrap { position: relative; }
+.categories-scroll-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 36px; height: 36px; border-radius: 50%; background: #fff;
+  box-shadow: var(--shadow); display: grid; place-items: center;
+  font-size: 16px; color: var(--saudi-700); z-index: 2;
+}
+.categories-scroll-btn.right { right: -6px; }
+.categories-scroll-btn.left { left: -6px; }
+@media (max-width: 700px) { .categories-scroll-btn { display: none; } }
+
 .offers-grid, .coupons-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+
+.filters {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 8px;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--saudi-200) transparent;
+}
+.filters::-webkit-scrollbar { height: 6px; }
+.filters::-webkit-scrollbar-thumb { background: var(--saudi-200); border-radius: 999px; }
+.filter-pill { flex: 0 0 auto; white-space: nowrap; }
 .stores-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
 
 .empty-msg { text-align: center; padding: 50px 20px; color: #6b8a76; border: 1px dashed var(--saudi-200); border-radius: var(--radius); background: rgba(11,122,62,.03); }
@@ -181,6 +287,8 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .site-footer h4 { color: #fff; font-size: 14px; margin-bottom: 10px; }
 .site-footer a, .footer-desc { display: block; color: var(--saudi-200); font-size: 13px; margin-bottom: 8px; }
 .footer-copy { text-align: center; border-top: 1px solid rgba(255,255,255,.1); padding: 16px 0; font-size: 12px; color: var(--saudi-200); }
+.admin-link { color: var(--saudi-200); text-decoration: underline; }
+.admin-link:hover { color: #fff; }
 
 /* ---------- Modal ---------- */
 .modal-overlay {

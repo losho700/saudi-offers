@@ -32,10 +32,12 @@
       <a href="#coupons">أكواد الخصم</a>
       <a href="#categories">الأقسام</a>
       <a href="#stores">المتاجر</a>
+      <a href="/admin/" class="mobile-admin-link">🔐 إدارة</a>
     </nav>
 
     <div class="header-actions">
       <button class="btn btn-primary" id="openSubmitBtn">أضف عرضك 🇸🇦</button>
+      <a href="/admin/" class="btn btn-admin">🔐 إدارة</a>
     </div>
 
     <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">☰</button>
@@ -44,10 +46,11 @@
 
 <!-- ============ Hero ============ -->
 <section class="hero" id="home">
+  <div class="hero-bg"></div>
   <div class="container hero-inner">
-    <span class="hero-badge">🇸🇦 احتفالًا باليوم الوطني السعودي 96</span>
-    <h1>عروض اليوم الوطني السعودي 96</h1>
-    <p class="hero-sub">اكتشف أقوى العروض والخصومات احتفالًا باليوم الوطني السعودي</p>
+    <span class="hero-badge visually-hidden">🇸🇦 احتفالًا باليوم الوطني السعودي 96</span>
+    <h1 class="visually-hidden">عروض اليوم الوطني السعودي 96</h1>
+    <p class="hero-sub visually-hidden">اكتشف أقوى العروض والخصومات احتفالًا باليوم الوطني السعودي</p>
 
     <div class="countdown" id="countdown">
       <div class="cd-box"><span id="cd-days">00</span><small>يوم</small></div>
@@ -58,13 +61,13 @@
     <p class="countdown-note">العد التنازلي لليوم الوطني السعودي 96 — وبعض العروض بدأت بالفعل من الآن!</p>
 
     <div class="search-wrap">
-      <input type="text" id="searchInput" placeholder="ابحث عن متجر أو عرض...">
+      <input type="text" id="searchInput" placeholder="">
       <span class="search-icon">🔍</span>
     </div>
 
     <div class="hero-buttons">
-      <a href="#offers" class="btn btn-white">اكتشف العروض</a>
-      <button class="btn btn-outline" id="heroSubmitBtn">أضف عرضك</button>
+      <a href="#offers" class="btn btn-gold">اكتشف العروض</a>
+      <button class="btn btn-gold-outline" id="heroSubmitBtn">أضف عرضك</button>
     </div>
   </div>
 </section>
@@ -74,7 +77,11 @@
   <!-- ============ Categories ============ -->
   <section class="section" id="categories">
     <h2 class="section-title">تصفح الأقسام</h2>
-    <div class="grid categories-grid" id="categoriesGrid"></div>
+    <div class="categories-wrap">
+      <button class="categories-scroll-btn right" id="catScrollRight" aria-label="التالي">←</button>
+      <div class="grid categories-grid" id="categoriesGrid"></div>
+      <button class="categories-scroll-btn left" id="catScrollLeft" aria-label="السابق">→</button>
+    </div>
   </section>
 
   <!-- ============ Coupons ============ -->
@@ -130,7 +137,7 @@
       <p id="footerContact" class="footer-desc"></p>
     </div>
   </div>
-  <p class="footer-copy">© <span id="year"></span> عروض اليوم الوطني السعودي 96. جميع الحقوق محفوظة.</p>
+  <p class="footer-copy">© <span id="year"></span> عروض اليوم الوطني السعودي 96. جميع الحقوق محفوظة. · <a href="/admin/" class="admin-link">إدارة</a></p>
 </footer>
 
 <!-- ============ Offer/Coupon Detail Modal ============ -->
@@ -144,7 +151,9 @@
     <button class="modal-close" id="closeSubmitModal">✕</button>
     <h3>أضف عرضك 🇸🇦</h3>
     <p class="modal-note">عبّئ البيانات وسنراجعها ونتواصل معك لنشر العرض.</p>
-    <form id="submitOfferForm">
+    <form id="submitOfferForm" name="submit-offer" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="submit-offer">
+      <p class="hidden"><label>لا تعبّئ هذا الحقل: <input name="bot-field"></label></p>
       <label>اسم المتجر أو الموقع *<input required name="storeName" type="text"></label>
       <label>ما هو العرض؟ *<input required name="title" type="text"></label>
       <label>وصف العرض<textarea name="description" rows="3"></textarea></label>
@@ -155,10 +164,14 @@
       <label>كود الخصم (إن وجد)<input name="discountCode" type="text" dir="ltr"></label>
       <label>وسيلة تواصلك (جوال أو إيميل) *<input required name="contact" type="text"></label>
       <div class="submit-actions">
-        <button type="submit" class="btn btn-primary" name="via" value="whatsapp">إرسال عبر واتساب</button>
-        <button type="submit" class="btn btn-outline" name="via" value="email">إرسال عبر الإيميل</button>
+        <button type="submit" class="btn btn-primary">إرسال العرض للمراجعة</button>
       </div>
     </form>
+    <div id="submitSuccessMsg" class="hidden">
+      <p class="modal-note" style="color:var(--saudi-600);font-weight:700;">
+        ✅ تم إرسال عرضك بنجاح! سنراجعه ونضيفه للموقع قريبًا بإذن الله.
+      </p>
+    </div>
   </div>
 </div>
 

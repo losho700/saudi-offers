@@ -59,13 +59,19 @@ function updateCountdown() {
 /* ---------------- Categories ---------------- */
 function renderCategories() {
   const grid = document.getElementById("categoriesGrid");
-  grid.innerHTML = CATEGORIES.map(
+  const allCard = `
+    <a href="#offers" class="category-card" onclick="filterByCategory(null)">
+      <div class="icon">🗂️</div>
+      <div class="name">الكل</div>
+    </a>`;
+  const categoryCards = CATEGORIES.map(
     (cat) => `
     <a href="#offers" class="category-card" onclick="filterByCategory('${cat.id}')">
       <div class="icon">${cat.icon}</div>
       <div class="name">${cat.name}</div>
     </a>`
   ).join("");
+  grid.innerHTML = allCard + categoryCards;
 }
 
 function filterByCategory(catId) {
@@ -167,7 +173,7 @@ function renderOffers() {
           <h3 class="offer-title">${offer.title}</h3>
           <p class="offer-desc">${offer.description || ""}</p>
           <div class="offer-footer">
-            <button class="btn btn-primary" onclick="openOfferDetail('${offer.id}')">مشاهدة العرض</button>
+            <a href="${offer.url}" target="_blank" rel="nofollow noopener" class="btn btn-primary">مشاهدة العرض</a>
             <button class="icon-btn" onclick="shareItem('${offer.title.replace(/'/g, "\\'")}')" title="مشاركة">🔗</button>
             <button class="icon-btn ${isFav ? "active" : ""}" onclick="handleFavoriteClick(this,'${offer.id}')" title="مفضلة">❤</button>
           </div>
@@ -268,15 +274,10 @@ function revealCoupon(id) {
   if (!coupon) return;
   const container = document.getElementById(`coupon-action-${id}`);
   container.innerHTML = `
-    <div class="coupon-code-box" style="cursor:pointer" onclick="copyAndGoCoupon('${coupon.id}')">
+    <div class="coupon-code-box">
       <span>${coupon.code}</span>
-      <small>نسخ والانتقال ↗</small>
+      <small>تم النسخ ✓</small>
     </div>`;
-}
-
-function copyAndGoCoupon(id) {
-  const coupon = COUPONS.find((c) => c.id === id);
-  if (!coupon) return;
   navigator.clipboard.writeText(coupon.code).catch(() => {});
   window.open(coupon.url, "_blank", "noopener,noreferrer");
 }
@@ -316,7 +317,11 @@ function openSubmitModal() {
 }
 document.getElementById("openSubmitBtn").addEventListener("click", openSubmitModal);
 document.getElementById("heroSubmitBtn").addEventListener("click", openSubmitModal);
-document.getElementById("closeSubmitModal").addEventListener("click", () => submitModal.classList.remove("open"));
+document.getElementById("closeSubmitModal").addEventListener("click", () => {
+  submitModal.classList.remove("open");
+  document.getElementById("submitOfferForm").classList.remove("hidden");
+  document.getElementById("submitSuccessMsg").classList.add("hidden");
+});
 
 [submitModal, document.getElementById("detailModal")].forEach((modal) => {
   modal.addEventListener("click", (e) => {
@@ -327,39 +332,60 @@ document.getElementById("closeSubmitModal").addEventListener("click", () => subm
 document.getElementById("submitOfferForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const form = e.target;
-  const via = e.submitter ? e.submitter.value : "whatsapp";
 
-  const data = {
-    storeName: form.storeName.value,
-    title: form.title.value,
-    description: form.description.value,
-    offerUrl: form.offerUrl.value,
-    category: form.category.value,
-    discountCode: form.discountCode.value,
-    contact: form.contact.value,
-  };
+  const formData = new FormData(form);
 
-  const message =
-    `عرض جديد لموقع اليوم الوطني 96:\n` +
-    `المتجر: ${data.storeName}\n` +
-    `العرض: ${data.title}\n` +
-    `الوصف: ${data.description || "-"}\n` +
-    `الرابط: ${data.offerUrl}\n` +
-    `القسم: ${data.category}\n` +
-    `كود الخصم: ${data.discountCode || "-"}\n` +
-    `للتواصل: ${data.contact}`;
-
-  if (via === "email") {
-    window.location.href = `mailto:${SITE_CONFIG.contactEmail}?subject=${encodeURIComponent("عرض جديد - " + data.storeName)}&body=${encodeURIComponent(message)}`;
-  } else {
-    window.open(`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
-  }
-
-  form.reset();
-  submitModal.classList.remove("open");
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
+  })
+    .then(() => {
+      form.classList.add("hidden");
+      document.getElementById("submitSuccessMsg").classList.remove("hidden");
+      form.reset();
+    })
+    .catch(() => {
+      alert("حدث خطأ أثناء الإرسال، حاول مرة أخرى أو تواصل معنا مباشرة عبر الإيميل.");
+    });
 });
 
-/* ---------------- Init: تحميل البيانات من ملفات JSON ---------------- */
+/* ---------------- Typewriter effect for search placeholder ---------------- */
+function startSearchTypewriter() {
+  const input = document.getElementById("searchInput");
+  if (!input) return;
+  const phrase = "ابحث عن عرض أو كود خصم أو متجر...";
+  let index = 0;
+  let deleting = false;
+
+  function tick() {
+    if (document.activeElement === input || input.value) {
+      // لا تعبث بالـ placeholder إذا كان المستخدم يكتب أو الحقل مركّز عليه
+      setTimeout(tick, 400);
+      return;
+    }
+
+    input.placeholder = phrase.slice(0, index);
+
+    if (!deleting && index < phrase.length) {
+      index++;
+      setTimeout(tick, 90);
+    } else if (!deleting && index === phrase.length) {
+      deleting = true;
+      setTimeout(tick, 1600); // وقفة قبل المسح
+    } else if (deleting && index > 0) {
+      index--;
+      setTimeout(tick, 40);
+    } else {
+      deleting = false;
+      setTimeout(tick, 500); // وقفة قبل إعادة الكتابة
+    }
+  }
+
+  tick();
+}
+
+/* ---------------- Init ---------------- */
 async function loadJSON(path) {
   const res = await fetch(path, { cache: "no-store" });
   if (!res.ok) throw new Error("تعذّر تحميل " + path);
@@ -397,7 +423,7 @@ async function init() {
     (c) => `<option value="${c.name}">${c.name}</option>`
   ).join("");
 
-  document.getElementById("footerContact").textContent = `واتساب: +${SITE_CONFIG.whatsappNumber} · ${SITE_CONFIG.contactEmail}`;
+  document.getElementById("footerContact").textContent = `${SITE_CONFIG.contactEmail}`;
 
   renderCategories();
   renderOfferFilters();
@@ -405,6 +431,17 @@ async function init() {
   renderOffers();
   renderCoupons();
   renderStores();
+
+  /* ---------------- Categories horizontal scroll buttons ---------------- */
+  const catGrid = document.getElementById("categoriesGrid");
+  document.getElementById("catScrollRight").addEventListener("click", () => {
+    catGrid.scrollBy({ left: -220, behavior: "smooth" });
+  });
+  document.getElementById("catScrollLeft").addEventListener("click", () => {
+    catGrid.scrollBy({ left: 220, behavior: "smooth" });
+  });
+
+  startSearchTypewriter();
 }
 
 init();

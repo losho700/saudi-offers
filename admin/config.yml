@@ -13,10 +13,9 @@ collections:
     label: "⚙️ الإعدادات العامة"
     files:
       - name: "config"
-        label: "الإعدادات (واتساب، إيميل، العدّاد)"
+        label: "الإعدادات (إيميل، العدّاد)"
         file: "data/config.json"
         fields:
-          - { label: "رقم الواتساب (بصيغة دولية بدون + مثال 966501234567)", name: "whatsappNumber", widget: "string" }
           - { label: "الإيميل للتواصل", name: "contactEmail", widget: "string" }
           - { label: "تاريخ اليوم الوطني (للعدّاد التنازلي)", name: "nationalDayDate", widget: "datetime" }
 
