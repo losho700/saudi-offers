@@ -193,6 +193,17 @@
       "image": "/assets/images/uploads/لقطة-شاشة-2026-09-15-125408.png",
       "description": "خصم حتى 50% على أكثر من 500 منتج",
       "category": "online"
+    },
+    {
+      "expiryDate": "2026-09-30T23:59:00.000+03:00",
+      "discountPercent": 96,
+      "storeName": "قطاف",
+      "featured": false,
+      "url": "https://www.stc.com.sa/ar/personal/loyalty/qitaf/redeem-points.html?gclsrc=aw.ds&gad_source=1&gad_campaignid=20357892940&gbraid=0AAAAADFD3_PN7507IOedbmKtaMtjJEStR&gclid=EAIaIQobChMIjLWT6LfwlgMVNZyDBx2DzzwjEAAYASAAEgJvkfD_BwE",
+      "title": "عند شراء نقاط قطاف تحصل على 96% نقاط إضافية",
+      "id": "offer16",
+      "image": "/assets/images/uploads/لقطة-شاشة-2026-09-15-140034.png",
+      "category": "online"
     }
   ]
 }
