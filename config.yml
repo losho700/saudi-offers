@@ -1,0 +1,131 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+locale: "ar"
+
+collections:
+  # -------------------- الإعدادات العامة --------------------
+  - name: "settings"
+    label: "⚙️ الإعدادات العامة"
+    files:
+      - name: "config"
+        label: "الإعدادات (إيميل، العدّاد)"
+        file: "data/config.json"
+        fields:
+          - { label: "الإيميل للتواصل", name: "contactEmail", widget: "string" }
+          - { label: "تاريخ اليوم الوطني (للعدّاد التنازلي)", name: "nationalDayDate", widget: "datetime" }
+
+  # -------------------- الأقسام --------------------
+  - name: "categories"
+    label: "🏷️ الأقسام"
+    files:
+      - name: "categories"
+        label: "قائمة الأقسام"
+        file: "data/categories.json"
+        fields:
+          - name: "items"
+            label: "الأقسام"
+            widget: "list"
+            summary: "{{fields.icon}} {{fields.name}}"
+            fields:
+              - { label: "المعرف (إنجليزي بدون مسافات، مثال: restaurants)", name: "id", widget: "string" }
+              - { label: "اسم القسم", name: "name", widget: "string" }
+              - { label: "الأيقونة (إيموجي)", name: "icon", widget: "string" }
+
+  # -------------------- المتاجر --------------------
+  - name: "stores"
+    label: "🏬 المتاجر"
+    files:
+      - name: "stores"
+        label: "قائمة المتاجر"
+        file: "data/stores.json"
+        fields:
+          - name: "items"
+            label: "المتاجر"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "المعرف (إنجليزي بدون مسافات، مثال: store1)", name: "id", widget: "string" }
+              - { label: "اسم المتجر", name: "name", widget: "string" }
+              - { label: "الشعار", name: "logo", widget: "image" }
+              - { label: "رابط الموقع", name: "url", widget: "string" }
+
+  # -------------------- العروض --------------------
+  - name: "offers"
+    label: "🎁 العروض"
+    files:
+      - name: "offers"
+        label: "قائمة العروض"
+        file: "data/offers.json"
+        fields:
+          - name: "items"
+            label: "العروض"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "المعرف (إنجليزي بدون مسافات وفريد، مثال: offer4)", name: "id", widget: "string" }
+              - { label: "عنوان العرض", name: "title", widget: "string" }
+              - { label: "الوصف", name: "description", widget: "text", required: false }
+              - { label: "صورة العرض", name: "image", widget: "image" }
+              - { label: "اسم المتجر", name: "storeName", widget: "string" }
+              - { label: "رابط العرض أو المتجر", name: "url", widget: "string" }
+              - label: "القسم"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "مطاعم", value: "restaurants" }
+                  - { label: "أزياء", value: "fashion" }
+                  - { label: "عطور", value: "perfumes" }
+                  - { label: "حلويات", value: "sweets" }
+                  - { label: "إلكترونيات", value: "electronics" }
+                  - { label: "سفر وفنادق", value: "travel" }
+                  - { label: "تجميل", value: "beauty" }
+                  - { label: "أثاث", value: "furniture" }
+                  - { label: "سيارات", value: "cars" }
+                  - { label: "خدمات", value: "services" }
+                  - { label: "متاجر إلكترونية", value: "online" }
+              - { label: "نسبة الخصم % (رقم فقط، اتركه فارغ إذا ما فيه)", name: "discountPercent", widget: "number", required: false, value_type: "int" }
+              - { label: "كود الخصم (اتركه فارغ إذا ما فيه)", name: "discountCode", widget: "string", required: false }
+              - { label: "تاريخ انتهاء العرض (اختياري)", name: "expiryDate", widget: "datetime", required: false }
+              - { label: "عرض مميز؟", name: "featured", widget: "boolean", default: false }
+              - { label: "منشور بالموقع؟ (عطّله للمراجعة قبل النشر)", name: "published", widget: "boolean", default: true }
+
+  # -------------------- أكواد الخصم --------------------
+  - name: "coupons"
+    label: "🎟️ أكواد الخصم"
+    files:
+      - name: "coupons"
+        label: "قائمة الأكواد"
+        file: "data/coupons.json"
+        fields:
+          - name: "items"
+            label: "الأكواد"
+            widget: "list"
+            summary: "{{fields.storeName}} - {{fields.code}}"
+            fields:
+              - { label: "المعرف (إنجليزي بدون مسافات وفريد، مثال: coupon3)", name: "id", widget: "string" }
+              - { label: "اسم المتجر", name: "storeName", widget: "string" }
+              - { label: "شعار المتجر", name: "storeLogo", widget: "image" }
+              - { label: "وصف مختصر للخصم", name: "description", widget: "string" }
+              - { label: "كود الخصم", name: "code", widget: "string" }
+              - { label: "رابط المتجر", name: "url", widget: "string" }
+              - label: "القسم"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "مطاعم", value: "restaurants" }
+                  - { label: "أزياء", value: "fashion" }
+                  - { label: "عطور", value: "perfumes" }
+                  - { label: "حلويات", value: "sweets" }
+                  - { label: "إلكترونيات", value: "electronics" }
+                  - { label: "سفر وفنادق", value: "travel" }
+                  - { label: "تجميل", value: "beauty" }
+                  - { label: "أثاث", value: "furniture" }
+                  - { label: "سيارات", value: "cars" }
+                  - { label: "خدمات", value: "services" }
+                  - { label: "متاجر إلكترونية", value: "online" }
+              - { label: "كود مميز؟", name: "featured", widget: "boolean", default: false }
