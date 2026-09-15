@@ -1,7 +1,0 @@
-{
-  "items": [
-    { "id": "store1", "name": "مطعم البيت السعودي", "logo": "https://picsum.photos/seed/store1/200", "url": "https://example.com" },
-    { "id": "store2", "name": "بوتيك لمسة", "logo": "https://picsum.photos/seed/store2/200", "url": "https://example.com" },
-    { "id": "store3", "name": "دار العطور الفاخرة", "logo": "https://picsum.photos/seed/store3/200", "url": "https://example.com" }
-  ]
-}
