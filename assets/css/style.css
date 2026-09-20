@@ -160,7 +160,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .btn-gold-outline:hover { background: rgba(217,180,92,.25); }
 
 @media (max-width: 700px) {
-  .hero-bg { padding-top: 55%; background-size: 160% auto; }
+  .hero-bg { padding-top: 55%; background-size: 100% auto; }
   .hero-inner { margin-top: -9%; }
   .cd-box { min-width: 52px; padding: 8px 10px; }
 }
