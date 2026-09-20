@@ -11,6 +11,16 @@
       "category": "online"
     },
     {
+      "featured": true,
+      "id": "coupon5",
+      "storeName": "ترينديول",
+      "storeLogo": "/assets/images/uploads/شعار-ترينديول.png",
+      "description": "خصم 5% على منتجات مختارة",
+      "code": "SOUQ",
+      "url": "https://ty.gl/va8qxo90wljay",
+      "category": "online"
+    },
+    {
       "id": "coupon2",
       "storeName": "نون",
       "storeLogo": "/assets/images/uploads/لقطة-شاشة-2026-09-20-085012.png",
@@ -21,14 +31,114 @@
       "featured": true
     },
     {
+      "featured": true,
+      "id": "coupon4",
+      "storeName": "ايهيرب",
+      "storeLogo": "/assets/images/uploads/لقطة-شاشة-2026-09-20-084956.png",
+      "description": "خصم 10% على أغلب المنتجات",
+      "url": "https://iherb.co/zAHvfzWh",
+      "category": "online",
+      "code": "CCX1845"
+    },
+    {
+      "featured": true,
+      "id": "coupon6",
+      "storeName": "شي ان",
+      "code": "WZWM8",
+      "url": "https://souqama.com/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjU2NyIsInRvZ2dsZSI6ZmFsc2V9",
+      "category": "online",
+      "description": "خصم 10% على بعض المنتجات",
+      "storeLogo": "/assets/images/uploads/لقطة-شاشة-2026-09-20-100102.png"
+    },
+    {
       "id": "coupon1",
       "storeName": "نايس ون",
-      "storeLogo": "/assets/images/uploads/نايس-ون.png",
+      "storeLogo": "/assets/images/uploads/لقطة-شاشة-2026-09-20-111158.png",
       "description": "خصم يصل إلى 50% على كثير من المنتجات",
       "code": "FAZAA",
       "url": "https://niceonesa.com/ar",
       "category": "online",
       "featured": true
+    },
+    {
+      "featured": false,
+      "id": "coupon7",
+      "storeName": "الفالح للرياضة",
+      "storeLogo": "/assets/images/uploads/لقطة-شاشة-2026-09-20-111204.png",
+      "description": "خصم 7% على جميع المتجر",
+      "code": "FUB",
+      "url": "https://elfaleh.sa/?srsltid=AU7gw4VJ0BKxoYx--BXU_Z5IBcxarJbHNxnVAcDft55uoyrTB4-C2XTb",
+      "category": "online"
+    },
+    {
+      "featured": false,
+      "id": "coupon8",
+      "storeName": "GO SPORT",
+      "storeLogo": "/assets/images/uploads/لقطة-شاشة-2026-09-20-111214.png",
+      "description": "خصم 10% على جميع المتجر",
+      "code": "SP2",
+      "url": "https://ksa.gosportme.com/?srsltid=AU7gw4UPfv8nqfKVrOX2SOsnvs_u2s1TKzWKyZLPebEhyGdW8siy5wjY",
+      "category": "online"
+    },
+    {
+      "featured": false,
+      "id": "coupon9",
+      "storeName": "المطار",
+      "storeLogo": "/assets/images/uploads/لقطة-شاشة-2026-09-20-111209.png",
+      "description": "خصم 10% في الموقع والتطبيق",
+      "code": "MR9",
+      "url": "https://almatar.com/en/sa/?utm_source=google&utm_medium=cpc&utm_campaign=Almatar_Almatar_loc-SA_B1_GSN_lan-AR%2FEN_C7_Acquisition_Impresison-Share_Desktop%20PWA_T3_Flights%20Hotels_Brand-ImpresisonShare&utm_content=Almatar_Almatar_loc-SA_B1_GSN_lan-EN_C7_Broad_Men%20Women_Web_T3_Flights%20Hotels_Brand&utm_term=almatar&gad_source=1&gad_campaignid=15054474611&gbraid=0AAAAAC3aSqop9iMA4mscRe-S91YVvjATz&gclid=CjwKCAjwiL7VBhA-EiwAhZi9EG3h82FAzWilGRAd-a3cjeIFFareN1IeYe7Qi72EJafLG50Wg1Mi8RoCFrcQAvD_BwE",
+      "category": "travel"
+    },
+    {
+      "featured": false,
+      "id": "coupon10",
+      "storeName": "ممزورلد",
+      "url": "https://www.mumzworld.com/sa-ar",
+      "code": "GULFN",
+      "description": "خصم 10%",
+      "category": "online",
+      "storeLogo": "/assets/images/uploads/لقطة-شاشة-2026-09-20-104135.png"
+    },
+    {
+      "featured": true,
+      "id": "coupon11",
+      "storeName": "نمشي",
+      "storeLogo": "/assets/images/uploads/لقطة-شاشة-2026-09-20-105648.png",
+      "description": "خصم 15%",
+      "code": "NM375",
+      "url": "https://www.namshi.com/saudi-ar/fashion/women-fashion/",
+      "category": "online"
+    },
+    {
+      "featured": true,
+      "id": "coupon12",
+      "storeName": "نمشي",
+      "storeLogo": "/assets/images/uploads/لقطة-شاشة-2026-09-20-105648.png",
+      "description": "خصم 10% على جميع الموقع",
+      "code": "5NA25",
+      "url": "https://www.namshi.com/saudi-ar/fashion/women-fashion/",
+      "category": "online"
+    },
+    {
+      "featured": true,
+      "id": "coupon13",
+      "storeName": "نايس ون",
+      "storeLogo": "/assets/images/uploads/لقطة-شاشة-2026-09-20-111158.png",
+      "description": "خصم 15% على الموقع",
+      "code": "FAZAA",
+      "url": "https://niceonesa.com/ar",
+      "category": "beauty"
+    },
+    {
+      "featured": false,
+      "id": "coupon14",
+      "storeName": "ريف",
+      "storeLogo": "/assets/images/uploads/لقطة-شاشة-2026-09-20-111154.png",
+      "description": "خصم 10% على الموقع",
+      "code": "REE141",
+      "url": "https://reefperfumes.com/en",
+      "category": "perfumes"
     }
   ]
 }
