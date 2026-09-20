@@ -19,6 +19,16 @@
       "url": "https://example.com",
       "category": "electronics",
       "featured": false
+    },
+    {
+      "featured": true,
+      "id": "coupon3",
+      "storeName": "امازون",
+      "storeLogo": "/assets/images/uploads/شعار-امازون.png",
+      "description": "خصم يصل إلى 50% على بعض كثير من المنتجات",
+      "code": "SOUJQPQU",
+      "url": "https://link.amazon/A0hKSxBlT",
+      "category": "online"
     }
   ]
 }
