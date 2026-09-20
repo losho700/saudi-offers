@@ -2,12 +2,12 @@
   "items": [
     {
       "id": "coupon1",
-      "storeName": "رحلات الخليج للسفر",
-      "storeLogo": "https://picsum.photos/seed/store5/200",
-      "description": "خصم 15% على حجوزات الفنادق",
-      "code": "TRAVEL15",
-      "url": "https://example.com",
-      "category": "travel",
+      "storeName": "نايس ون",
+      "storeLogo": "/assets/images/uploads/نايس-ون.png",
+      "description": "خصم يصل إلى 50% على كثير من المنتجات",
+      "code": "FAZAA",
+      "url": "https://niceonesa.com/ar",
+      "category": "online",
       "featured": true
     },
     {
