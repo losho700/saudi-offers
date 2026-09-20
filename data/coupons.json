@@ -3,22 +3,12 @@
     {
       "id": "coupon1",
       "storeName": "نايس ون",
-      "storeLogo": "/assets/images/uploads/نايس-ون.png",
+      "storeLogo": "/assets/images/uploads/locar-national-day.png",
       "description": "خصم يصل إلى 50% على كثير من المنتجات",
       "code": "FAZAA",
       "url": "https://niceonesa.com/ar",
       "category": "online",
       "featured": true
-    },
-    {
-      "id": "coupon2",
-      "storeName": "تك ستور",
-      "storeLogo": "https://picsum.photos/seed/store4/200",
-      "description": "شحن مجاني لأي طلب فوق 200 ريال",
-      "code": "FREESHIP",
-      "url": "https://example.com",
-      "category": "electronics",
-      "featured": false
     },
     {
       "featured": true,
@@ -29,6 +19,16 @@
       "code": "SOUJQPQU",
       "url": "https://link.amazon/A0hKSxBlT",
       "category": "online"
+    },
+    {
+      "id": "coupon2",
+      "storeName": "تك ستور",
+      "storeLogo": "https://picsum.photos/seed/store4/200",
+      "description": "شحن مجاني لأي طلب فوق 200 ريال",
+      "code": "FREESHIP",
+      "url": "https://example.com",
+      "category": "electronics",
+      "featured": false
     }
   ]
 }
